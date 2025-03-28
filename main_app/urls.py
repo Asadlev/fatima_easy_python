@@ -5,11 +5,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+app_name = 'main_app'
+
+
 urlpatterns = [
     path('', views.main, name='main'),
+    path('detail/<int:pk>', views.MethodDetailView.as_view(), name='detail'),
     path('about', views.about,name='about'),
-    path('cart1', views.cart1,name='cart1'),
-
 ]
 
 if settings.DEBUG:

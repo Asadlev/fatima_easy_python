@@ -1,0 +1,22 @@
+{% extends 'main_app/base.html' %}
+
+
+{% block content %}
+
+<div  class="container py-5">
+        <div class="row">
+            <!-- Левая колонка -->
+            <div class="col-lg-6 mb-4">
+                <div class="django-card">
+                    <h2 class="django-title">{{ method.title}}</h2>
+                    <div class="django-text">
+                        <p>{{ method.description }}</p>
+                        <img src="{{ method.example_code_image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+
+
+

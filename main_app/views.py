@@ -1,24 +1,28 @@
 from django.shortcuts import render
-from .models import Method, Names
-from .models import Article, Card
+from django.views.generic import DetailView
+
+from .models import Method
+
 
 
 def main(request):
     methods = Method.objects.all()
-    context = {'methods': methods}
+    context = {
+        'methods': methods
+    }
     return render(request, 'main_app/main.html', context)
 
 
+
+class MethodDetailView(DetailView):
+    model = Method
+    context_object_name = 'method'
+    template_name = 'main_app/detail.html'
+
+
+
 def about(request):
-    names = Names.objects.all()
-    context = {'names': names}
-    return render(request, 'main_app/about.html', context)
-
-def cart1(request):
-    article = Article.objects.all()
-    context = {'article': article}
-    return render(request, 'main_app/cart1.html', context)
-
+    return render(request, 'main_app/about.html')
 
 
 
